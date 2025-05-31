@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# to start the docker container with the needed binaries:
+# 1) go to: `https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html`
+# 2) download the basic package, and the sqlplus package rpm
+# 3) create a fedora container named `oracle-client`: podman run -it --name oracle-client fedora
+# 4) copy those two files to the container
+# 5) install them using dnf
+
 QUERY_FILE="$1"
 DB_URL="$2"
 

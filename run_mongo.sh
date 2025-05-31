@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # to start the docker container with the server:
-# 1) podman run --rm -d -v mongodb_data:/data/db --name mongo-server --network none docker.io/library/mongo:latest
-# 2) podman run --rm -d -v mongodb_data:/data/db --name mongo-server -p27017:27017 docker.io/library/mongo:latest 
+# 1) podman run -d -v mongodb_data:/data/db --name mongo-server --network none docker.io/library/mongo:latest
+# 2) podman run -d -v mongodb_data:/data/db --name mongo-server -p27017:27017 docker.io/library/mongo:latest 
 # note: 1) completely isolates the server, 2) if other local apps needs to access the server
 
 QUERY_FILE="$1"

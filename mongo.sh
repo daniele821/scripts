@@ -7,9 +7,11 @@ DB_URL="$2"
 
 ! [[ -f "$QUERY_FILE" ]] && echo "not a file: $1" && exit 1
 
-if [[ -z "$(podman port mongo-server)" && -n "$DB_URL" ]] || [[ -n "$(podman port mongo-server)" && -z "$DB_URL" ]]; then
-    echo 'stopping mongo server...'
-    podman stop mongo-server >/dev/null
+if [[ "$(podman ps --filter "name=mongo-server" --format "{{.ID}}" | wc -l)" -eq 1 ]]; then
+    if [[ -z "$(podman port mongo-server)" && -n "$DB_URL" ]] || [[ -n "$(podman port mongo-server)" && -z "$DB_URL" ]]; then
+        echo 'stopping mongo server...'
+        podman stop mongo-server >/dev/null
+    fi
 fi
 
 if [[ "$(podman ps --filter "name=mongo-server" --format "{{.ID}}" | wc -l)" -eq 0 ]]; then

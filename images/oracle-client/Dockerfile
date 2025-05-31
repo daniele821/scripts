@@ -1,4 +1,4 @@
-FROM fedora
+FROM registry.fedoraproject.org/fedora:latest
 
 ADD https://download.oracle.com/otn_software/linux/instantclient/oracle-instantclient-basic-linuxx64.rpm /tmp/build/basic.rpm
 ADD https://download.oracle.com/otn_software/linux/instantclient/oracle-instantclient-sqlplus-linuxx64.rpm /tmp/build/sqlplus.rpm

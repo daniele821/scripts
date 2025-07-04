@@ -8,7 +8,7 @@ DB_URL="$2"
 if [[ "$(podman ps --filter "name=oracle-client" --format "{{.ID}}" | wc -l)" -eq 0 ]]; then
     if ! podman images --format "{{.Repository}}" | grep -qx localhost/custom-sqlplus; then
         echo "building custom image for oracle connections..."
-        "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/images/oracle-client/build.sh"
+        "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/oracle-client/build.sh"
     fi
     echo "launching oracle client container..."
     podman run --rm -d --name oracle-client localhost/custom-sqlplus sleep infinity >/dev/null

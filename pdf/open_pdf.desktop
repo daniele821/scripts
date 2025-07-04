@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Open Pdf
+Exec=bash -c 'while read -r line; do if [[ $FIRST != true ]]; then xdg-open "$line"; FIRST=true ; else xdg-open "$line" ; fi ; done <"$HOME/Desktop/stored_pdfs.txt"'
+Type=Application

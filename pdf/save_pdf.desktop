@@ -1,3 +1,4 @@
+#!/bin/gio launch
 [Desktop Entry]
 Name=Save Pdf
 Exec=bash -c 'pgrep okular &>/dev/null && for proc in $(pgrep okular); do lsof -F n -p "$proc" | grep ".pdf$" | cut -c2- ; done >"$HOME/Desktop/stored_pdfs.txt"'

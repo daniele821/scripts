@@ -1,8 +1,5 @@
 FROM fedora
 
-# add env vars
-ENV EDITOR="nvim" GOPATH="/root/.local/share/go"
-
 # install needed packages
 RUN dnf install -y lsd ripgrep bat git bash-completion \
     neovim git unzip wget ripgrep tree-sitter-cli nodejs npm python3 golang && \
@@ -10,7 +7,7 @@ RUN dnf install -y lsd ripgrep bat git bash-completion \
 
 # initialize neovim and bash
 RUN git clone --branch complete --depth 1 https://github.com/daniele821/nvim-config /root/.config/nvim && \
-    nvim --headless +StarterPack +qa
+    GOPATH="/root/.local/share/go" nvim --headless +StarterPack +qa && rm -rf /root/.cache /root/.npm
 COPY bashrc /root/.bashrc
 COPY gitconfig /root/.gitconfig
 

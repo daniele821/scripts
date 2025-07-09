@@ -7,7 +7,7 @@ RUN dnf install -y lsd ripgrep bat git bash-completion \
 
 # initialize neovim and bash
 RUN git clone --branch complete --depth 1 https://github.com/daniele821/nvim-config /root/.config/nvim && \
-    GOPATH="/root/.local/share/go" nvim --headless +StarterPack +qa && rm -rf /root/.cache /root/.npm
+    nvim --headless +StarterPack +qa && rm -rf /root/.cache /root/.npm /root/go
 COPY bashrc /root/.bashrc
 COPY gitconfig /root/.gitconfig
 

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Neovim: ./run.sh
+#
 # PARAMETERS: none
 #
 # STEPS:

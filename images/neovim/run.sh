@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
+SCRIPT_DIRNAME="$(basename "$(realpath "$PWD")")"
+[ "$SCRIPT_DIRNAME" == "/" ] && SCRIPT_DIRNAME='host'
+
+if ! podman image exists localhost/neovim; then
+    podman build -t neovim "$SCRIPT_DIR"
+fi
+
+podman run --rm -it --security-opt label=disable -v .:/app/"$SCRIPT_DIRNAME" -w /app/"$SCRIPT_DIRNAME" localhost/neovim

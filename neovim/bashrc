@@ -1,5 +1,6 @@
 # env vars
 export EDITOR="nvim"
+export TERM=tmux-256color
 export PYTHONDONTWRITEBYTECODE="true"
 export PYTHON_HISTORY="/dev/null"
 export NODE_REPL_HISTORY="/dev/null"

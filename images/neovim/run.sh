@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# PARAMETERS: none
+#
+# STEPS:
+# - creates podman image named neovim, if missing
+# - runs that image and mounts current directory inside of it
+
 SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 SCRIPT_DIRNAME="$(basename "$(realpath "$PWD")")"
 [ "$SCRIPT_DIRNAME" == "/" ] && SCRIPT_DIRNAME='host'

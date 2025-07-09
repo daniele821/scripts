@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO: entr is not installed. think of other solutions!
+#       after that, write good documentation (see neovim run.sh)
+
 # ./oracle.sh <query_file> <url>
 
 QUERY_FILE="$1"

@@ -1,7 +1,7 @@
 FROM fedora
 
 # add env vars
-ENV EDITOR="nvim" GOPATH="$HOME/.local/share/go"
+ENV EDITOR="nvim" GOPATH="/root/.local/share/go"
 
 # install needed packages
 RUN dnf install -y lsd ripgrep bat git bash-completion \

@@ -1,9 +1,16 @@
 #!/bin/bash
 
-# TODO: entr is not installed. think of other solutions!
-#       after that, write good documentation (see neovim run.sh)
-
-# ./oracle.sh <query_file> <url>
+# Oracle: ./run.sh [QUERY_FILE DB_URL]
+#
+# PARAMETERS: 
+#   - QUERY_FILE: specify which files to track, and to use as a db query on change
+#   - DB_URL: specify the url of the oracle database to connect to 
+#
+# DESCRIPTION:
+#   Create a container with the tools necessary to make queries to the oracle
+#   database specified in DB_URL, then launches a containers and uses the file
+#   specified in QUERY_FILE to make the queries on save.
+#   With no parameters the script just builds and launch the container.
 
 QUERY_FILE="$1"
 DB_URL="$2"

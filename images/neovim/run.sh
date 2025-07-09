@@ -2,11 +2,9 @@
 
 # Neovim: ./run.sh
 #
-# PARAMETERS: none
-#
-# STEPS:
-# - creates podman image named neovim, if missing
-# - runs that image and mounts current directory inside of it
+# DESCRIPTION:
+#   Create a neovim dev environment image (if missing), and then runs a
+#   container, mount the current directory.
 
 for dep in podman dirname realpath; do
     ! command -v "$dep" &>/dev/null && echo "Missing dependency: $dep" && exit 1
